@@ -1,4 +1,4 @@
--- round to [places] decimal places
+-- round [num] to [places] decimal places
 function round(num,places)
     local mult = 10^(places or 0)
     return math.floor(num*mult+0.5)/mult
@@ -10,7 +10,7 @@ getTempReading = function ()
     t = require("ds18b20")
     c = require("Client")
 
-    -- ESP-01 GPIO Mapping
+	-- GPIO mapping
     gpio0 = 3
     gpio2 = 4
     t.setup(gpio0)
@@ -19,7 +19,7 @@ getTempReading = function ()
     print("Total DS18B20 sensors: "..table.getn(addrs))
     end
 
-    -- read temperature in C
+    -- read temperature in C 
     print("Temperature: "..t.read().."'C")
 
     --reading the temp and rounding it to 2 decimal places
